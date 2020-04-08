@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { UserProvider } from './authentication/UserContext';
 import { Layout } from './layout/Layout';
+import { RoomTitle } from './components/RoomTitle';
 import { UserInfo } from './components/UserInfo';
 import { UsersList } from './components/UsersList';
 import { Messages } from './components/Messages';
@@ -10,7 +11,7 @@ function App() {
   return (
     <UserProvider>
       <Layout>
-        <Title />
+        <RoomTitle />
         <UserInfo />
         <UsersList />
         <Messages />
@@ -19,7 +20,5 @@ function App() {
     </UserProvider>
   );
 }
-
-const Title = () => <h1>Just another public chat room</h1>;
 
 export default App;
