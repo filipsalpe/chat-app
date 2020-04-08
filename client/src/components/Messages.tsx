@@ -1,5 +1,27 @@
 import * as React from 'react';
 import { prisma, Message } from '../generated/prisma-client';
+import styled from '@emotion/styled/macro';
+
+const MessageContainer = styled.div`
+  margin: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5em;
+`;
+const MessageHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const MessageText = styled.p`
+  margin: 0;
+`;
+const MessageDate = styled.span`
+  margin-left: 10px;
+  color: #aaa;
+`;
+const MessageAuthor = styled.span`
+  font-weight: bold;
+`;
 
 type MessageWithAuthor = Message & { author: { name: string } };
 
@@ -23,15 +45,17 @@ export const Messages = () => {
     setMessagesRequested(true);
   }
 
+  return <>{messages.map(MessageComponent)}</>;
+};
+
+const MessageComponent = (msg: MessageWithAuthor) => {
   return (
-    <>
-      {messages.map((msg) => (
-        <div key={msg.id}>
-          <p>{msg.text}</p>
-          <p>{new Date(msg.createdAt).toLocaleTimeString()}</p>
-          <p>{msg.author.name}</p>
-        </div>
-      ))}
-    </>
+    <MessageContainer key={msg.id}>
+      <MessageHeader>
+        <MessageAuthor>{msg.author.name}</MessageAuthor>
+        <MessageDate>{new Date(msg.createdAt).toLocaleTimeString()}</MessageDate>
+      </MessageHeader>
+      <MessageText>{msg.text}</MessageText>
+    </MessageContainer>
   );
 };
