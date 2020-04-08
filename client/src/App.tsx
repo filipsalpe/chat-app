@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { UserProvider, UserContext } from './authentication/UserContext';
+import { UserProvider } from './authentication/UserContext';
+import { UserInfo } from './components/UserInfo';
 
 function App() {
   return (
@@ -11,10 +12,5 @@ function App() {
 }
 
 const Title = () => <h1>Just another public chat room</h1>;
-
-const UserInfo = () => {
-  const user = React.useContext(UserContext);
-  return user && <p>You are logged in as {user.name}</p>;
-};
 
 export default App;
