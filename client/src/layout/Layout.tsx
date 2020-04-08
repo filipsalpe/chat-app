@@ -9,7 +9,8 @@ const Wrapper = styled.div`
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  width: 100%;
+  max-width: 800px;
 `;
 
 export const Layout = (props: React.HTMLAttributes<HTMLDivElement>) => (
