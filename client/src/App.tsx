@@ -3,6 +3,7 @@ import { UserProvider } from './authentication/UserContext';
 import { UserInfo } from './components/UserInfo';
 import { UsersList } from './components/UsersList';
 import { Messages } from './components/Messages';
+import { MessageInput } from './components/MessageInput';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <UserInfo />
       <UsersList />
       <Messages />
+      <MessageInput />
     </UserProvider>
   );
 }

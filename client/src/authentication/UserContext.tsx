@@ -25,7 +25,11 @@ export const UserProvider: React.FC = (props) => {
 
     setUserRequested(true);
     prisma.user({ id: userId }).then((u) => {
-      setUser(u);
+      if (u) {
+        setUser(u);
+      } else {
+        localStorage.removeItem('user_id');
+      }
     });
   }
 
