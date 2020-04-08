@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { UserProvider } from './authentication/UserContext';
 import { UserInfo } from './components/UserInfo';
+import { UsersList } from './components/UsersList';
 import { Messages } from './components/Messages';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <UserProvider>
       <Title />
       <UserInfo />
+      <UsersList />
       <Messages />
     </UserProvider>
   );
