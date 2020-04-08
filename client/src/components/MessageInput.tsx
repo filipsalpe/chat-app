@@ -1,6 +1,16 @@
 import * as React from 'react';
 import { prisma } from '../generated/prisma-client';
 import { UserContext } from '../authentication/UserContext';
+import styled from '@emotion/styled/macro';
+
+const Input = styled.input`
+  font-size: 1em;
+  line-height: 2em;
+  border-radius: 4px;
+  border: 1px solid #8a8a8a;
+  margin: 10px;
+  padding: 5px 10px;
+`;
 
 const ENTER_KEY = 'Enter';
 
@@ -18,5 +28,5 @@ export const MessageInput = () => {
     }
   };
 
-  return <input type="text" onKeyDown={submitOnEnter} />;
+  return <Input type="text" placeholder="Message" onKeyDown={submitOnEnter} />;
 };

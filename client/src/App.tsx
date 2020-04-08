@@ -15,8 +15,14 @@ function App() {
       <Layout>
         <RoomTitle />
         <Tabs activeTab={activeTab} onRequestChange={setActiveTab} />
-        {activeTab === Tab.CHAT ? <Messages /> : <UsersList />}
-        <MessageInput />
+        {activeTab === Tab.CHAT ? (
+          <>
+            <Messages />
+            <MessageInput />
+          </>
+        ) : (
+          <UsersList />
+        )}
       </Layout>
     </UserProvider>
   );
