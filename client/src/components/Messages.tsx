@@ -57,7 +57,9 @@ const MessageComponent = (msg: MessageWithAuthor) => {
         <MessageDate>{new Date(msg.createdAt).toLocaleTimeString()}</MessageDate>
       </MessageHeader>
       <MessageText>{msg.text}</MessageText>
-      {msg.encodedImage}
+      <div>
+        <img alt="" src={`data:${msg.encodedImage}`} />
+      </div>
     </MessageContainer>
   );
 };
