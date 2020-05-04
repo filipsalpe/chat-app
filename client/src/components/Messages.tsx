@@ -58,7 +58,7 @@ const MessageComponent = (msg: MessageWithAuthor) => {
       </MessageHeader>
       <MessageText>{msg.text}</MessageText>
       <div>
-        <img alt="" src={`data:${msg.encodedImage}`} />
+        <img alt="" src={msg.encodedImage} />
       </div>
     </MessageContainer>
   );

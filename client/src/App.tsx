@@ -5,7 +5,7 @@ import { Tabs, Tab } from './layout/Tabs';
 import { RoomTitle } from './components/RoomTitle';
 import { UsersList } from './components/UsersList';
 import { Messages } from './components/Messages';
-import { MessageInput } from './components/MessageInput';
+import { CreateMessage } from './components/CreateMessage';
 
 function App() {
   const [activeTab, setActiveTab] = React.useState<Tab>(Tab.CHAT);
@@ -18,7 +18,7 @@ function App() {
         {activeTab === Tab.CHAT ? (
           <>
             <Messages />
-            <MessageInput />
+            <CreateMessage />
           </>
         ) : (
           <UsersList />

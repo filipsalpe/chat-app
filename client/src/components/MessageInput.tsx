@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { prisma } from '../generated/prisma-client';
-import { UserContext } from '../authentication/UserContext';
 import styled from '@emotion/styled/macro';
 
 const Input = styled.input`
@@ -14,17 +12,17 @@ const Input = styled.input`
 
 const ENTER_KEY = 'Enter';
 
-export const MessageInput = () => {
-  const user = React.useContext(UserContext);
+export interface MessageInputProps extends Omit<React.HTMLAttributes<HTMLInputElement>, "onSubmit"> {
+  onSubmit(text: string): void;
+}
 
+export const MessageInput: React.FC<MessageInputProps> = ({ onSubmit }) => {
   const submitOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === ENTER_KEY) {
       const input = e.target as HTMLInputElement;
       const messageText = input.value;
       input.value = '';
-      prisma.createMessage({ author: { connect: { id: user!.id } }, text: messageText }).then(() => {
-        window.location.reload(true); // This is very sad. We should get prisma subscriptions to work
-      });
+      onSubmit(messageText);
     }
   };
 
