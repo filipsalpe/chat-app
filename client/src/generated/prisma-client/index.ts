@@ -145,6 +145,8 @@ export type MessageOrderByInput =
   | "id_DESC"
   | "text_ASC"
   | "text_DESC"
+  | "encodedImage_ASC"
+  | "encodedImage_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -187,6 +189,20 @@ export interface MessageWhereInput {
   text_not_starts_with?: Maybe<String>;
   text_ends_with?: Maybe<String>;
   text_not_ends_with?: Maybe<String>;
+  encodedImage?: Maybe<String>;
+  encodedImage_not?: Maybe<String>;
+  encodedImage_in?: Maybe<String[] | String>;
+  encodedImage_not_in?: Maybe<String[] | String>;
+  encodedImage_lt?: Maybe<String>;
+  encodedImage_lte?: Maybe<String>;
+  encodedImage_gt?: Maybe<String>;
+  encodedImage_gte?: Maybe<String>;
+  encodedImage_contains?: Maybe<String>;
+  encodedImage_not_contains?: Maybe<String>;
+  encodedImage_starts_with?: Maybe<String>;
+  encodedImage_not_starts_with?: Maybe<String>;
+  encodedImage_ends_with?: Maybe<String>;
+  encodedImage_not_ends_with?: Maybe<String>;
   author?: Maybe<UserWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
@@ -253,6 +269,7 @@ export type UserWhereUniqueInput = AtLeastOne<{
 export interface MessageCreateInput {
   id?: Maybe<ID_Input>;
   text: String;
+  encodedImage?: Maybe<String>;
   author: UserCreateOneWithoutMessagesInput;
 }
 
@@ -268,6 +285,7 @@ export interface UserCreateWithoutMessagesInput {
 
 export interface MessageUpdateInput {
   text?: Maybe<String>;
+  encodedImage?: Maybe<String>;
   author?: Maybe<UserUpdateOneRequiredWithoutMessagesInput>;
 }
 
@@ -289,6 +307,7 @@ export interface UserUpsertWithoutMessagesInput {
 
 export interface MessageUpdateManyMutationInput {
   text?: Maybe<String>;
+  encodedImage?: Maybe<String>;
 }
 
 export interface UserCreateInput {
@@ -307,6 +326,7 @@ export interface MessageCreateManyWithoutAuthorInput {
 export interface MessageCreateWithoutAuthorInput {
   id?: Maybe<ID_Input>;
   text: String;
+  encodedImage?: Maybe<String>;
 }
 
 export interface UserUpdateInput {
@@ -344,6 +364,7 @@ export interface MessageUpdateWithWhereUniqueWithoutAuthorInput {
 
 export interface MessageUpdateWithoutAuthorDataInput {
   text?: Maybe<String>;
+  encodedImage?: Maybe<String>;
 }
 
 export interface MessageUpsertWithWhereUniqueWithoutAuthorInput {
@@ -381,6 +402,20 @@ export interface MessageScalarWhereInput {
   text_not_starts_with?: Maybe<String>;
   text_ends_with?: Maybe<String>;
   text_not_ends_with?: Maybe<String>;
+  encodedImage?: Maybe<String>;
+  encodedImage_not?: Maybe<String>;
+  encodedImage_in?: Maybe<String[] | String>;
+  encodedImage_not_in?: Maybe<String[] | String>;
+  encodedImage_lt?: Maybe<String>;
+  encodedImage_lte?: Maybe<String>;
+  encodedImage_gt?: Maybe<String>;
+  encodedImage_gte?: Maybe<String>;
+  encodedImage_contains?: Maybe<String>;
+  encodedImage_not_contains?: Maybe<String>;
+  encodedImage_starts_with?: Maybe<String>;
+  encodedImage_not_starts_with?: Maybe<String>;
+  encodedImage_ends_with?: Maybe<String>;
+  encodedImage_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -409,6 +444,7 @@ export interface MessageUpdateManyWithWhereNestedInput {
 
 export interface MessageUpdateManyDataInput {
   text?: Maybe<String>;
+  encodedImage?: Maybe<String>;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -444,6 +480,7 @@ export interface NodeNode {
 export interface Message {
   id: ID_Output;
   text: String;
+  encodedImage?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -451,6 +488,7 @@ export interface Message {
 export interface MessagePromise extends Promise<Message>, Fragmentable {
   id: () => Promise<ID_Output>;
   text: () => Promise<String>;
+  encodedImage: () => Promise<String>;
   author: <T = UserPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -461,6 +499,7 @@ export interface MessageSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   text: () => Promise<AsyncIterator<String>>;
+  encodedImage: () => Promise<AsyncIterator<String>>;
   author: <T = UserSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -471,6 +510,7 @@ export interface MessageNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   text: () => Promise<String>;
+  encodedImage: () => Promise<String>;
   author: <T = UserPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -702,6 +742,7 @@ export interface MessageSubscriptionPayloadSubscription
 export interface MessagePreviousValues {
   id: ID_Output;
   text: String;
+  encodedImage?: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -711,6 +752,7 @@ export interface MessagePreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   text: () => Promise<String>;
+  encodedImage: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -720,6 +762,7 @@ export interface MessagePreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   text: () => Promise<AsyncIterator<String>>;
+  encodedImage: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }

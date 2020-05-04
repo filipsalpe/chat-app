@@ -21,6 +21,7 @@ scalar Long
 type Message {
   id: ID!
   text: String!
+  encodedImage: String
   author: User!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -35,6 +36,7 @@ type MessageConnection {
 input MessageCreateInput {
   id: ID
   text: String!
+  encodedImage: String
   author: UserCreateOneWithoutMessagesInput!
 }
 
@@ -46,6 +48,7 @@ input MessageCreateManyWithoutAuthorInput {
 input MessageCreateWithoutAuthorInput {
   id: ID
   text: String!
+  encodedImage: String
 }
 
 type MessageEdge {
@@ -58,6 +61,8 @@ enum MessageOrderByInput {
   id_DESC
   text_ASC
   text_DESC
+  encodedImage_ASC
+  encodedImage_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -67,6 +72,7 @@ enum MessageOrderByInput {
 type MessagePreviousValues {
   id: ID!
   text: String!
+  encodedImage: String
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -100,6 +106,20 @@ input MessageScalarWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
+  encodedImage: String
+  encodedImage_not: String
+  encodedImage_in: [String!]
+  encodedImage_not_in: [String!]
+  encodedImage_lt: String
+  encodedImage_lte: String
+  encodedImage_gt: String
+  encodedImage_gte: String
+  encodedImage_contains: String
+  encodedImage_not_contains: String
+  encodedImage_starts_with: String
+  encodedImage_not_starts_with: String
+  encodedImage_ends_with: String
+  encodedImage_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -141,15 +161,18 @@ input MessageSubscriptionWhereInput {
 
 input MessageUpdateInput {
   text: String
+  encodedImage: String
   author: UserUpdateOneRequiredWithoutMessagesInput
 }
 
 input MessageUpdateManyDataInput {
   text: String
+  encodedImage: String
 }
 
 input MessageUpdateManyMutationInput {
   text: String
+  encodedImage: String
 }
 
 input MessageUpdateManyWithoutAuthorInput {
@@ -171,6 +194,7 @@ input MessageUpdateManyWithWhereNestedInput {
 
 input MessageUpdateWithoutAuthorDataInput {
   text: String
+  encodedImage: String
 }
 
 input MessageUpdateWithWhereUniqueWithoutAuthorInput {
@@ -213,6 +237,20 @@ input MessageWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
+  encodedImage: String
+  encodedImage_not: String
+  encodedImage_in: [String!]
+  encodedImage_not_in: [String!]
+  encodedImage_lt: String
+  encodedImage_lte: String
+  encodedImage_gt: String
+  encodedImage_gte: String
+  encodedImage_contains: String
+  encodedImage_not_contains: String
+  encodedImage_starts_with: String
+  encodedImage_not_starts_with: String
+  encodedImage_ends_with: String
+  encodedImage_not_ends_with: String
   author: UserWhereInput
   createdAt: DateTime
   createdAt_not: DateTime

@@ -31,6 +31,7 @@ const GET_MESSAGES = `query ($orderBy: MessageOrderByInput) {
     text
     createdAt
     updatedAt
+    encodedImage
     author {
       name
     }
@@ -56,6 +57,7 @@ const MessageComponent = (msg: MessageWithAuthor) => {
         <MessageDate>{new Date(msg.createdAt).toLocaleTimeString()}</MessageDate>
       </MessageHeader>
       <MessageText>{msg.text}</MessageText>
+      {msg.encodedImage}
     </MessageContainer>
   );
 };
